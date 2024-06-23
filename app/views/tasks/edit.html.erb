@@ -1,0 +1,10 @@
+<h1>Editing task</h1>
+
+<%= render "editform", task: @task %>
+
+<br>
+
+<div>
+  <a href="<%= task_path(@task) %>" class="btn btn-dark">Show this Task</a>
+  <a href="<%= tasks_path %>" class="btn btn-dark">Back to tasks</a>
+</div>

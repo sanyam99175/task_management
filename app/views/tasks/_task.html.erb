@@ -1,0 +1,21 @@
+<div class="jumbotron">
+  <div class="row">
+    <h3 class="display-4 col"><%= task.title %></h1>
+    <% if task.status == "backlog" %>
+      <% badge_class = "badge-danger" %>
+    <% elsif task.status == "done" %>
+      <% badge_class = "badge-success" %>
+    <% else %>
+      <% badge_class = "badge-warning" %>
+    <% end %>
+    <span style="float:right; height: 21px; width: 80px;" class="badge badge-pill <%= badge_class %>"><%= task.status %></span>
+  </div>
+  <h6 class="lead"><%= task.description %></h6>
+  <hr class="my-4">
+  <p>Due on: <%= task.deadline.to_date %></p>
+  <p class="lead">
+    <a href="<%= edit_task_path(task) %>" class="btn btn-dark">Edit Task</a>
+    <a href="<%= tasks_path %>" class="btn btn-dark">Back to tasks</a>
+    <%= button_to "Destroy this task", @task, method: :delete %>
+  </p>
+</div>
